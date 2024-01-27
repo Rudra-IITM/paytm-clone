@@ -12,7 +12,6 @@ const signupBody = zod.object({
     firstName: zod.string(),
     lastName: zod.string(),
     password: zod.string().min(6),
-
 })
 
 const siginBody = zod.object({
@@ -51,7 +50,7 @@ router.post("/signup", async (req, res) => {
 
     await Account.create({
         userId,
-        balance: 1 + Math.random() * 10000;
+        balance: 1 + Math.random() * 10000,
     })
 
     const token = jwt.sign({
